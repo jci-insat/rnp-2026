@@ -7,38 +7,93 @@ const days = [
     label: "Vendredi",
     date: "24 Avril",
     sessions: [
-      { time: "14:00 - 15:30", title: "Accueil & Enregistrement", type: "Logistique", desc: "Installation des délégations et distribution des kits participants" },
-      { time: "16:00 - 17:30", title: "Cérémonie d'Ouverture", type: "Plénière", desc: "Discours d'ouverture du Président National et des invités d'honneur" },
-      { time: "18:00 - 19:30", title: "Ice Breaking & Networking", type: "Social", desc: "Activités de cohésion et de réseautage entre présidents locaux" },
-      { time: "20:00", title: "Dîner Officiel", type: "Social", desc: "Dîner de gala avec les partenaires et sponsors" },
+      {
+        time: "14:00 - 15:30",
+        title: "Accueil & Enregistrement",
+        type: "Logistique",
+        desc: "Installation des délégations et distribution des kits participants",
+      },
+      {
+        time: "16:00 - 17:30",
+        title: "Cérémonie d'Ouverture",
+        type: "Plénière",
+        desc: "Discours d'ouverture du Président National et des invités d'honneur",
+      },
+      {
+        time: "18:00 - 19:30",
+        title: "Ice Breaking & Networking",
+        type: "Social",
+        desc: "Activités de cohésion et de réseautage entre présidents locaux",
+      },
+      {
+        time: "20:00",
+        title: "Dîner Officiel",
+        type: "Social",
+        desc: "Dîner de gala avec les partenaires et sponsors",
+      },
     ],
   },
   {
     label: "Samedi",
     date: "25 Avril",
     sessions: [
-      { time: "09:00 - 10:30", title: "Assemblée Générale - Partie 1", type: "Plénière", desc: "Rapport moral et financier du mandat précédent" },
-      { time: "11:00 - 12:30", title: "Ateliers Stratégiques", type: "Formation", desc: "Sessions parallèles sur la transformation digitale des OLM" },
-      { time: "14:00 - 15:30", title: "Plan d'Action National 2026", type: "Plénière", desc: "Présentation et adoption du plan stratégique annuel" },
-      { time: "16:00 - 17:30", title: "Formation Leadership", type: "Formation", desc: "Workshop sur le leadership innovant post-Congrès Mondial" },
+      {
+        time: "09:00 - 10:30",
+        title: "Assemblée Générale - Partie 1",
+        type: "Plénière",
+        desc: "Rapport moral et financier du mandat précédent",
+      },
+      {
+        time: "11:00 - 12:30",
+        title: "Ateliers Stratégiques",
+        type: "Formation",
+        desc: "Sessions parallèles sur la transformation digitale des OLM",
+      },
+      {
+        time: "14:00 - 15:30",
+        title: "Plan d'Action National 2026",
+        type: "Plénière",
+        desc: "Présentation et adoption du plan stratégique annuel",
+      },
+      {
+        time: "16:00 - 17:30",
+        title: "Formation Leadership",
+        type: "Formation",
+        desc: "Workshop sur le leadership innovant post-Congrès Mondial",
+      },
     ],
   },
   {
     label: "Dimanche",
     date: "26 Avril",
     sessions: [
-      { time: "09:00 - 10:30", title: "Assemblée Générale - Partie 2", type: "Plénière", desc: "Votes et résolutions statutaires" },
-      { time: "11:00 - 12:00", title: "Cérémonie de Clôture", type: "Plénière", desc: "Synthèse des travaux et engagements collectifs" },
-      { time: "12:30", title: "Déjeuner de Clôture", type: "Social", desc: "Repas de clôture et départ des délégations" },
+      {
+        time: "09:00 - 10:30",
+        title: "Assemblée Générale - Partie 2",
+        type: "Plénière",
+        desc: "Votes et résolutions statutaires",
+      },
+      {
+        time: "11:00 - 12:00",
+        title: "Cérémonie de Clôture",
+        type: "Plénière",
+        desc: "Synthèse des travaux et engagements collectifs",
+      },
+      {
+        time: "12:30",
+        title: "Déjeuner de Clôture",
+        type: "Social",
+        desc: "Repas de clôture et départ des délégations",
+      },
     ],
   },
 ];
 
 const typeColors: Record<string, string> = {
-  "Plénière": "bg-primary/10 text-primary",
-  "Formation": "bg-secondary/10 text-secondary",
-  "Social": "bg-muted text-muted-foreground",
-  "Logistique": "bg-muted text-muted-foreground",
+  Plénière: "bg-primary/10 text-primary",
+  Formation: "bg-secondary/10 text-secondary",
+  Social: "bg-muted text-muted-foreground",
+  Logistique: "bg-muted text-muted-foreground",
 };
 
 const ProgramSection = () => {
@@ -54,13 +109,12 @@ const ProgramSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="font-script text-3xl text-secondary mb-2">Le</p>
           <h2 className="font-display font-black text-3xl md:text-5xl text-primary uppercase tracking-wide">
-            Programme
+            Le Programme
           </h2>
           <div className="flex items-center justify-center gap-3 mt-4">
             <MapPin className="w-4 h-4 text-muted-foreground" />
-            <span className="text-muted-foreground font-display text-sm">Tunis, Tunisie</span>
+            <span className="text-muted-foreground font-display text-sm">Hammamet, Tunisie</span>
           </div>
         </motion.div>
 
@@ -82,8 +136,19 @@ const ProgramSection = () => {
           ))}
         </div>
 
+          {/* This will be removed  */}
+        <div className="text-center">
+          <p className="font-script text-xl md:text-2xl text-secondary mb-3">Bientôt Révélé</p>
+          <p className="text-muted-foreground font-display text-sm md:text-base leading-relaxed">
+            Le programme complet des trois jours sera dévoilé très prochainement.
+            <br />
+            Restez connectés pour découvrir les sessions, ateliers et moments forts qui vous attendent.
+          </p>
+        </div>
+        
+
         {/* Sessions */}
-        <AnimatePresence mode="wait">
+        {/* <AnimatePresence mode="wait">
           <motion.div
             key={activeDay}
             initial={{ opacity: 0, y: 10 }}
@@ -129,7 +194,7 @@ const ProgramSection = () => {
               </motion.div>
             ))}
           </motion.div>
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
     </section>
   );
