@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import smokeBg from "@/assets/smoke-bg.webp";
+import jciTunisieLog from "@/assets/logos/JCI Tunisie.png";
+import jciInsatLogo from "@/assets/logos/JCI INSAT Tunis.png";
+import jciTunisLogo from "@/assets/logos/JCI Tunis.png";
 
 const HeroSection = () => {
   return (
@@ -10,24 +13,25 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${smokeBg})` }}
       />
 
-      {/* Decorative line art circles */}
-      <div className="absolute top-10 right-10 w-64 h-64 rounded-full border border-secondary/10 pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full border border-primary/10 pointer-events-none" />
-
-      <div className="container relative z-10 px-4 py-20 md:py-32">
+      <div className="container relative z-10 px-4 pb-20 md:pb-32">
         {/* Logos */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-6 md:gap-10 mb-12"
+          className="flex items-center justify-center gap-2"
         >
-          {["JCI Tunisie", "JCI INSAT Tunis", "JCI Tunis"].map((name, i) => (
-            <div key={i} className="flex flex-col items-center gap-1">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg bg-secondary flex items-center justify-center">
-                <span className="text-secondary-foreground font-display font-bold text-xs md:text-sm">JCI</span>
-              </div>
-              <span className="text-[10px] md:text-xs text-primary font-display font-medium">{name.replace("JCI ", "")}</span>
+          {[
+            { name: "JCI Tunisie", logo: jciTunisieLog },
+            { name: "JCI INSAT Tunis", logo: jciInsatLogo },
+            { name: "JCI Tunis", logo: jciTunisLogo }
+          ].map(({ name, logo }, i) => (
+            <div key={i} className="w-30 h-30 lg:w-60 lg:h-60 md:w-50 md:h-50 sm:w-40 sm:h-40 flex items-center justify-center">
+              <img 
+                src={logo} 
+                alt={name} 
+                className="w-full h-full object-contain"
+              />
             </div>
           ))}
         </motion.div>
@@ -58,7 +62,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="font-display font-light text-lg md:text-2xl text-foreground tracking-[0.3em] mb-10"
+            className="font-display font-light text-lg md:text-2xl text-foreground mb-10"
           >
             24 - 25 - 26 Avril 2026
           </motion.p>
