@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import rnpLogo from "@/assets/logo-rnp.jpeg";
 
 const navLinks = [
   { label: "Programme", href: "#programme" },
@@ -24,12 +25,20 @@ const Navbar = () => {
         scrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container px-4 flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="flex items-center gap-2">
-          <span className="font-display font-bold text-sm md:text-base text-primary uppercase tracking-wider">
-            RNP
-          </span>
-          <span className="font-script text-lg md:text-xl text-secondary">2026</span>
+      <div className="container px-4 flex items-center justify-between h-20">
+        <a href="#" className="flex items-center">
+          <img 
+            src={rnpLogo} 
+            alt="RNP 2026" 
+            className="h-8 md:h-10 w-auto object-contain"
+          />
+          <div className="flex items-center gap-1">
+            <span className="font-script text-xl text-secondary">1re</span>
+            <span className="font-display font-bold text-lg text-primary uppercase tracking-wider">
+              RNP
+            </span>
+            <span className="font-display font-bold text-lg text-secondary">2026</span>
+          </div>
         </a>
 
         {/* Desktop */}
