@@ -100,7 +100,7 @@ const ProgramSection = () => {
   const [activeDay, setActiveDay] = useState(0);
 
   return (
-    <section id="programme" className="py-20 md:py-32 bg-background relative">
+    <section id="programme" className="py-5 md:py-8 bg-background relative">
       <div className="container px-4">
         {/* Section title */}
         <motion.div
@@ -112,7 +112,7 @@ const ProgramSection = () => {
           <h2 className="font-display font-black text-3xl md:text-5xl text-primary uppercase tracking-wide">
             Le Programme
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-4">
+          <div className="flex items-center justify-center gap-3 mt-2">
             <MapPin className="w-4 h-4 text-muted-foreground" />
             <span className="text-muted-foreground font-display text-sm">Hammamet, Tunisie</span>
           </div>
