@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logoRnp from "@/assets/logo-rnp.jpeg";
+import logoRnp from "@/assets/logo-rnp.png";
 
 const CocMessage = () => {
   return (
@@ -45,7 +45,7 @@ const CocMessage = () => {
               </p>
               <p>
                 Au lendemain du Congrès Mondial 2025 qui a positionné la Tunisie comme référence en matière de leadership citoyen, 
-                notre mandature 2026 s'ouvre sous le signe de la <strong className="font-semibold text-secondary">La Tunisie
+                notre mandature 2026 s'ouvre sous le signe de  <strong className="font-semibold text-secondary">La Tunisie
 autrement</strong>.
               </p>
               <p>

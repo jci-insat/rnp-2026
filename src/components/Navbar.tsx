@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import rnpLogo from "@/assets/logo-rnp.jpeg";
+import rnpLogo from "@/assets/logo-rnp.png";
 
 const navLinks = [
   { label: "Programme", href: "#programme" },
@@ -30,7 +30,7 @@ const Navbar = () => {
           <img 
             src={rnpLogo} 
             alt="RNP 2026" 
-            className="h-8 md:h-10 w-auto object-contain"
+            className="h-12 w-auto object-contain px-1"
           />
           <div className="flex items-center gap-1">
             <span className="font-script text-xl text-secondary">1re</span>
@@ -63,7 +63,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground m-6"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background border-t border-secondary/10 overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-9 py-6 space-y-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}

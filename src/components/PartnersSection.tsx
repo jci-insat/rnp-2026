@@ -19,9 +19,8 @@ const PartnersSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="font-script text-3xl text-secondary mb-2">Nos</p>
           <h2 className="font-display font-black text-3xl md:text-5xl text-primary uppercase tracking-wide">
-            Partenaires
+            Nos Partenaires
           </h2>
         </motion.div>
 
