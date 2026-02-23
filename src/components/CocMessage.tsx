@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import logoRnp from "@/assets/logo-rnp.jpeg";
 
-const PresidentMessage = () => {
+const CocMessage = () => {
   return (
     <section className="py-20 md:py-32 bg-card relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
@@ -35,17 +35,18 @@ const PresidentMessage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <p className="font-script text-3xl text-secondary mb-2">Le mot du</p>
+            <p className="font-script text-3xl text-secondary mb-2">Le mot de la</p>
             <h2 className="font-display font-bold text-2xl md:text-3xl text-primary uppercase tracking-wide mb-6">
-              Président National
+              Comité d'Organisation
             </h2>
             <div className="space-y-4 text-foreground font-display font-light leading-relaxed">
               <p>
-                Chers Présidents Locaux, chers membres de la famille JCI,
+                Chers Présidents Locaux, chers leaders de la JCET,
               </p>
               <p>
                 Au lendemain du Congrès Mondial 2025 qui a positionné la Tunisie comme référence en matière de leadership citoyen, 
-                notre mandature 2026 s'ouvre sous le signe de la <strong className="font-semibold text-secondary">Transformation Digitale</strong>.
+                notre mandature 2026 s'ouvre sous le signe de la <strong className="font-semibold text-secondary">La Tunisie
+autrement</strong>.
               </p>
               <p>
                 Cette 1ère Réunion Nationale des Présidents sera le moment fondateur de notre action collective. 
@@ -54,7 +55,8 @@ const PresidentMessage = () => {
             </div>
             <div className="mt-8 flex items-center gap-4">
               <div className="w-12 h-px bg-primary" />
-              <span className="font-display text-sm text-muted-foreground uppercase tracking-widest">Transformation Digitale 2026</span>
+              <span className="font-display text-sm text-muted-foreground uppercase tracking-widest">La Tunisie
+autrement 2026</span>
             </div>
           </motion.div>
         </div>
@@ -63,4 +65,4 @@ const PresidentMessage = () => {
   );
 };
 
-export default PresidentMessage;
+export default CocMessage;
