@@ -72,8 +72,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Montserrat', 'sans-serif'],
-        script: ['Great Vibes', 'cursive'],
+        display: ['Neue Montreal', 'sans-serif'],
+        script: ['Sloop Script Pro', 'cursive'],
       },
       borderRadius: {
         lg: "var(--radius)",
