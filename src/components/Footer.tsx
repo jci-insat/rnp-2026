@@ -38,15 +38,19 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <span className="font-display text-sm text-secondary-foreground/70">rnp@jcitunisie.org</span>
+                <span className="font-display text-sm text-secondary-foreground/70">jci.1re.rnp.2026@gmail.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="font-display text-sm text-secondary-foreground/70">+216 XX XXX XXX</span>
+                <span className="font-display text-sm text-secondary-foreground/70">+216 99 343 509</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-primary" />
+                <span className="font-display text-sm text-secondary-foreground/70">+216 50 538 928</span>
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="font-display text-sm text-secondary-foreground/70">Hammamet, Tunisie</span>
+                <span className="font-display text-sm text-secondary-foreground/70">Hotel LAICO Blue Marine Hammamet</span>
               </li>
             </ul>
           </div>

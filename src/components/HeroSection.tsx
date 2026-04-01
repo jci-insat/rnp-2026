@@ -96,6 +96,8 @@ const HeroSection = () => {
             className="font-display font-light text-lg md:text-2xl text-foreground mb-4"
           >
             24 - 25 - 26 Avril 2026
+            <br />
+            Hôtel LAICO Blue Marine, Hammamet
           </motion.p>
 
           {/* Countdown Timer */}

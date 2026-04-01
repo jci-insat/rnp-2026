@@ -1,17 +1,27 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import rnpLogo from "@/assets/logo-rnp.png";
 
 const navLinks = [
   { label: "Programme", href: "#programme" },
+  { label: "Activités", href: "#activites" },
   { label: "Inscriptions", href: "#inscription" },
   { label: "Partenaires", href: "#partenaires" },
 ];
 
 const Navbar = () => {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const buildSectionHref = (section: string) => {
+    if (location.pathname === "/") {
+      return `#${section}`;
+    }
+    return `/#${section}`;
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -26,7 +36,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container px-4 flex items-center justify-between h-20">
-        <a href="#" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img 
             src={rnpLogo} 
             alt="RNP 2026" 
@@ -39,21 +49,21 @@ const Navbar = () => {
             </span>
             <span className="font-display font-bold text-lg text-secondary">2026</span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={buildSectionHref(link.href.replace("#", ""))}
               className="font-display text-xs uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="#inscription"
+            href={buildSectionHref("inscription")}
             className="bg-primary text-primary-foreground font-display font-semibold text-xs uppercase tracking-widest px-6 py-2.5 rounded-sm hover:bg-sky-dark transition-colors"
           >
             S'inscrire
@@ -82,7 +92,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={buildSectionHref(link.href.replace("#", ""))}
                   onClick={() => setMobileOpen(false)}
                   className="block font-display text-sm uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors"
                 >
@@ -90,7 +100,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#inscription"
+                href={buildSectionHref("inscription")}
                 onClick={() => setMobileOpen(false)}
                 className="block bg-primary text-primary-foreground font-display font-semibold text-sm uppercase tracking-widest px-6 py-3 rounded-sm text-center"
               >
