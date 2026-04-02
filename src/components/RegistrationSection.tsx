@@ -152,7 +152,7 @@ const RegistrationSection = () => {
                 N'oubliez pas de joindre votre preuve de paiement.
               </p>
               <a
-                href="https://1rnp2026.tn"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdfDp5jD3WnEk5m8-3zQBfT5aVjy2WGz9GQAqsMiVyrm4iKpA/viewform?usp=header"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold text-sm uppercase tracking-widest px-10 py-4 rounded-sm hover:bg-sky-dark transition-colors duration-300 shadow-lg shadow-primary/20"
