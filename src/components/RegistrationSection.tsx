@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, CreditCard, Copy, CheckCircle, ExternalLink, Users, Bed, Star } from "lucide-react";
+import { FileText, CreditCard, Copy, CheckCircle, ExternalLink, Bed, Star } from "lucide-react";
 import { useState } from "react";
 
 const RegistrationSection = () => {
@@ -10,7 +10,11 @@ const RegistrationSection = () => {
       key: "VSD",
       title: "Hébergement VSD",
       icon: Star,
-      price: 270,
+      prices: [
+        { label: "Double", amount: 270 },
+        { label: "Triple", amount: 266 },
+        { label: "Quadruple", amount: 260 },
+      ],
       singleSupplementPerNight: 50,
       badgeClass: "bg-primary/10 text-primary",
     },
@@ -18,16 +22,13 @@ const RegistrationSection = () => {
       key: "SD",
       title: "Hébergement SD",
       icon: Bed,
-      price: 135,
+      prices: [
+        { label: "Double", amount: 135 },
+        { label: "Triple", amount: 133 },
+        { label: "Quadruple", amount: 130 },
+      ],
       singleSupplementPerNight: 50,
       badgeClass: "bg-secondary/10 text-secondary",
-    },
-    {
-      key: "Simple",
-      title: "Inscription simple",
-      icon: Users,
-      price: 35,
-      badgeClass: "bg-muted/20 text-muted-foreground",
     },
   ];
 
@@ -61,7 +62,7 @@ const RegistrationSection = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {registrationTypes.map((type, i) => {
                 const IconComponent = type.icon;
                 return (
@@ -81,16 +82,25 @@ const RegistrationSection = () => {
                       {type.title}
                     </h3>
 
-                    <div className="mb-3">
-                      <span className="font-display font-black text-4xl text-primary">{type.price}</span>
-                      <span className="font-display text-sm text-muted-foreground ml-2">TND</span>
+                    <div className="space-y-2 text-left">
+                      {type.prices.map((price) => (
+                        <div
+                          key={price.label}
+                          className="flex items-center justify-between rounded-sm bg-card/70 px-4 py-3"
+                        >
+                          <span className="font-display text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                            {price.label}
+                          </span>
+                          <span className="font-display text-xl font-black text-primary">
+                            {price.amount} <span className="text-sm font-semibold text-muted-foreground">TND</span>
+                          </span>
+                        </div>
+                      ))}
                     </div>
 
-                    {"singleSupplementPerNight" in type && (
-                      <p className="font-display text-xs text-muted-foreground">
-                        Supplément single : <span className="font-semibold text-foreground">+{type.singleSupplementPerNight} TND / nuitée</span>
-                      </p>
-                    )}
+                    <p className="mt-4 font-display text-xs text-muted-foreground">
+                      Supplément Single : <span className="font-semibold text-foreground">+{type.singleSupplementPerNight} DT / nuitée</span>
+                    </p>
                   </motion.div>
                 );
               })}
@@ -130,7 +140,7 @@ const RegistrationSection = () => {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-4 font-display">
-                💡 Mentionnez le type d'inscription et le nombre de participants dans le libellé
+                NB : L’inscription RNP (35 DT) est à payer sur place le jour J.
               </p>
             </motion.div>
 
@@ -152,7 +162,7 @@ const RegistrationSection = () => {
                 N'oubliez pas de joindre votre preuve de paiement.
               </p>
               <a
-                href="https://1rnp2026.tn"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfEG7MT6YIo4zDk8EuKCJDOv-5HsemV2qv6JAqDXTjeZ1Cqkg/viewform?usp=header"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold text-sm uppercase tracking-widest px-10 py-4 rounded-sm hover:bg-sky-dark transition-colors duration-300 shadow-lg shadow-primary/20"
