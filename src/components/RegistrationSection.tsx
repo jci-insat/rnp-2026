@@ -162,7 +162,11 @@ const RegistrationSection = () => {
                 N'oubliez pas de joindre votre preuve de paiement.
               </p>
               <a
+<<<<<<< HEAD
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfEG7MT6YIo4zDk8EuKCJDOv-5HsemV2qv6JAqDXTjeZ1Cqkg/viewform?usp=header"
+=======
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdfDp5jD3WnEk5m8-3zQBfT5aVjy2WGz9GQAqsMiVyrm4iKpA/viewform?usp=header"
+>>>>>>> fa3db3260ae17a6dedaf321f50bf57cf068b5a5d
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold text-sm uppercase tracking-widest px-10 py-4 rounded-sm hover:bg-sky-dark transition-colors duration-300 shadow-lg shadow-primary/20"
