@@ -1,9 +1,11 @@
 import { CalendarDays, Code2, ExternalLink, FileText, Sparkles, Trophy, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import hackathonPdf from "@/assets/Hackathon.pdf";
 
-const hackathonPreviewUrl = `${hackathonPdf}#view=FitH`;
+const hackathonRegistrationUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdtQ8aS5boPyW8JhzFPj1RBZKWkqAGzqFFhw2XTZcbC4YZqgw/viewform?usp=publish-editor";
+const hackathonDocumentUrl = "https://drive.google.com/file/d/1uoKUK1I1jRm-uiCViX2IqOSZSo_KlK6h/view?usp=sharing";
+const hackathonPreviewUrl = "https://drive.google.com/file/d/1uoKUK1I1jRm-uiCViX2IqOSZSo_KlK6h/preview";
 
 const highlights = [
   {
@@ -38,6 +40,16 @@ const HackathonPage = () => {
               Découvrez le dossier officiel du Hackathon et accédez à toutes les informations essentielles dans une
               seule page.
             </p>
+
+            <a
+              href={hackathonRegistrationUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3 mt-6 font-display font-semibold text-sm uppercase tracking-widest text-primary-foreground hover:bg-sky-dark transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Inscription Hackathon
+            </a>
           </section>
 
           <section className="space-y-6 mb-14">
@@ -73,7 +85,7 @@ const HackathonPage = () => {
                   </p>
                 </div>
                 <a
-                  href={hackathonPdf}
+                  href={hackathonDocumentUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-secondary/15 px-3 py-2 font-display text-xs uppercase tracking-widest text-secondary hover:border-primary/40 hover:text-primary transition-colors"
@@ -84,44 +96,12 @@ const HackathonPage = () => {
               </div>
 
               <div className="overflow-hidden rounded-xl border border-secondary/10 bg-muted/30">
-                <object
-                  data={hackathonPreviewUrl}
-                  type="application/pdf"
+                <iframe
+                  src={hackathonPreviewUrl}
+                  title="Aperçu du dossier Hackathon"
                   className="block w-full h-[78vh] min-h-[650px]"
-                >
-                  <div className="flex h-[72vh] min-h-[650px] items-center justify-center p-8 text-center">
-                    <div>
-                      <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
-                      <p className="font-display font-bold text-lg text-secondary uppercase tracking-wide mb-2">
-                        Aperçu indisponible
-                      </p>
-                      <p className="font-display text-sm text-muted-foreground mb-5 max-w-sm mx-auto">
-                        Votre navigateur ne prend pas en charge l’affichage direct des PDF.
-                      </p>
-                      <a
-                        href={hackathonPdf}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-3 font-display font-semibold text-sm uppercase tracking-widest text-primary-foreground hover:bg-sky-dark transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Ouvrir le dossier
-                      </a>
-                    </div>
-                  </div>
-                </object>
+                />
               </div>
-            </div>
-          </section>
-
-          <section className="max-w-4xl mx-auto">
-            <div className="bg-card border border-secondary/15 rounded-2xl p-6 md:p-8 text-center">
-              <p className="font-display font-black text-2xl md:text-4xl text-sky uppercase tracking-wide mb-4">
-                Restez à l’écoute
-              </p>
-              <p className="font-display text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Cette page servira de point d’accès au Hackathon au fur et à mesure des mises à jour officielles.
-              </p>
             </div>
           </section>
         </div>
