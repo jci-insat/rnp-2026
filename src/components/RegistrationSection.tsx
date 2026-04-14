@@ -62,7 +62,7 @@ const RegistrationSection = () => {
         },
         {
           key: "GREEN_SD",
-          title: "Hébergement VS & SD",
+          title: "Hébergement VS ou SD",
           icon: Bed,
           prices: [
             { label: "Single", amount: 90 },
