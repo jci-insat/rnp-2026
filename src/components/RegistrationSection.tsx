@@ -5,30 +5,76 @@ import { useState } from "react";
 const RegistrationSection = () => {
   const [copied, setCopied] = useState(false);
 
-  const registrationTypes = [
+  const hotels = [
     {
-      key: "VSD",
-      title: "Hébergement VSD",
-      icon: Star,
-      prices: [
-        { label: "Double", amount: 270 },
-        { label: "Triple", amount: 266 },
-        { label: "Quadruple", amount: 260 },
+      name: "Hôtel LAICO Blue Marine",
+      accentClass: "text-primary",
+      lineClass: "via-primary/30",
+      options: [
+        {
+          key: "VSD",
+          title: "Hébergement VSD",
+          icon: Star,
+          prices: [
+            { label: "Double", amount: 270 },
+            { label: "Triple", amount: 266 },
+            { label: "Quadruple", amount: 260 },
+          ],
+          singleSupplement: 50,
+          unit: "TND",
+          badgeClass: "bg-primary/10 text-primary",
+          priceColor: "text-primary",
+        },
+        {
+          key: "SD",
+          title: "Hébergement SD",
+          icon: Bed,
+          prices: [
+            { label: "Double", amount: 135 },
+            { label: "Triple", amount: 133 },
+            { label: "Quadruple", amount: 130 },
+          ],
+          singleSupplement: 50,
+          unit: "TND",
+          badgeClass: "bg-secondary/10 text-secondary",
+          priceColor: "text-primary",
+        },
       ],
-      singleSupplementPerNight: 50,
-      badgeClass: "bg-primary/10 text-primary",
     },
     {
-      key: "SD",
-      title: "Hébergement SD",
-      icon: Bed,
-      prices: [
-        { label: "Double", amount: 135 },
-        { label: "Triple", amount: 133 },
-        { label: "Quadruple", amount: 130 },
+      name: "Green Golf Hammamet",
+      accentClass: "text-emerald-600 dark:text-emerald-400",
+      lineClass: "via-emerald-500/30",
+      options: [
+        {
+          key: "GREEN_VSD",
+          title: "Hébergement VSD",
+          icon: Star,
+          prices: [
+            { label: "Single", amount: 180 },
+            { label: "Double", amount: 120 },
+            { label: "Triple", amount: 116 },
+            { label: "Quadruple", amount: 110 },
+          ],
+          unit: "DT",
+          badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+          priceColor: "text-emerald-600 dark:text-emerald-400",
+        },
+        {
+          key: "GREEN_SD",
+          title: "Hébergement VS & SD",
+          icon: Bed,
+          prices: [
+            { label: "Single", amount: 90 },
+            { label: "Double", amount: 60 },
+            { label: "Triple", amount: 58 },
+            { label: "Quadruple", amount: 55 },
+          ],
+          unit: "DT",
+          badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+          priceColor: "text-emerald-600 dark:text-emerald-400",
+        },
       ],
-      singleSupplementPerNight: 50,
-      badgeClass: "bg-secondary/10 text-secondary",
     },
   ];
 
@@ -55,57 +101,75 @@ const RegistrationSection = () => {
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Tarifs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {registrationTypes.map((type, i) => {
-                const IconComponent = type.icon;
-                return (
-                  <motion.div
-                    key={type.key}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="bg-background border border-secondary/20 rounded-sm p-8 text-center"
-                  >
-                    <div className={`w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center ${type.badgeClass}`}>
-                      <IconComponent className="w-7 h-7" />
-                    </div>
+          {/* Hotels & Tarifs */}
+          {hotels.map((hotel, hotelIdx) => (
+            <motion.div
+              key={hotel.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: hotelIdx * 0.15 }}
+              className="mb-16"
+            >
+              {/* Hotel Header */}
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center gap-4 mb-2">
+                  <span className={`hidden sm:block w-12 h-px bg-gradient-to-r from-transparent ${hotel.lineClass}`} />
+                  <h3 className={`font-display font-bold text-lg md:text-xl uppercase tracking-wider ${hotel.accentClass}`}>
+                    {hotel.name}
+                  </h3>
+                  <span className={`hidden sm:block w-12 h-px bg-gradient-to-l from-transparent ${hotel.lineClass}`} />
+                </div>
+              </div>
 
-                    <h3 className="font-display font-bold text-lg text-secondary uppercase tracking-wide mb-3">
-                      {type.title}
-                    </h3>
+              {/* Pricing Cards */}
+              <div className={`grid ${hotel.options.length > 1 ? 'md:grid-cols-2' : ''} gap-6 ${hotel.options.length > 1 ? 'max-w-4xl' : 'max-w-md'} mx-auto`}>
+                {hotel.options.map((option, i) => {
+                  const IconComponent = option.icon;
+                  return (
+                    <motion.div
+                      key={option.key}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (hotelIdx * 0.15) + (i * 0.1) }}
+                      className="bg-background border border-secondary/20 rounded-sm p-8 text-center"
+                    >
+                      <div className={`w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center ${option.badgeClass}`}>
+                        <IconComponent className="w-7 h-7" />
+                      </div>
 
-                    <div className="space-y-2 text-left">
-                      {type.prices.map((price) => (
-                        <div
-                          key={price.label}
-                          className="flex items-center justify-between rounded-sm bg-card/70 px-4 py-3"
-                        >
-                          <span className="font-display text-sm font-medium uppercase tracking-wider text-muted-foreground">
-                            {price.label}
-                          </span>
-                          <span className="font-display text-xl font-black text-primary">
-                            {price.amount} <span className="text-sm font-semibold text-muted-foreground">TND</span>
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                      <h4 className="font-display font-bold text-lg text-secondary uppercase tracking-wide mb-3">
+                        {option.title}
+                      </h4>
 
-                    <p className="mt-4 font-display text-xs text-muted-foreground">
-                      Supplément Single : <span className="font-semibold text-foreground">+{type.singleSupplementPerNight} DT / nuitée</span>
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
+                      <div className="space-y-2 text-left">
+                        {option.prices.map((price) => (
+                          <div
+                            key={price.label}
+                            className="flex items-center justify-between rounded-sm bg-card/70 px-4 py-3"
+                          >
+                            <span className="font-display text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                              {price.label}
+                            </span>
+                            <span className={`font-display text-xl font-black ${option.priceColor}`}>
+                              {price.amount} <span className="text-sm font-semibold text-muted-foreground">{option.unit}</span>
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {option.singleSupplement && (
+                        <p className="mt-4 font-display text-xs text-muted-foreground">
+                          Supplément Single : <span className="font-semibold text-foreground">+{option.singleSupplement} DT / nuitée</span>
+                        </p>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
           
           <div className="grid md:grid-cols-2 gap-10">
             {/* Bank details */}
