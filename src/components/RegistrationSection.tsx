@@ -20,7 +20,6 @@ const RegistrationSection = () => {
             { label: "Triple", amount: 266 },
             { label: "Quadruple", amount: 260 },
           ],
-          singleSupplement: 50,
           unit: "TND",
           badgeClass: "bg-primary/10 text-primary",
           priceColor: "text-primary",
@@ -34,7 +33,6 @@ const RegistrationSection = () => {
             { label: "Triple", amount: 133 },
             { label: "Quadruple", amount: 130 },
           ],
-          singleSupplement: 50,
           unit: "TND",
           badgeClass: "bg-secondary/10 text-secondary",
           priceColor: "text-primary",
@@ -158,12 +156,6 @@ const RegistrationSection = () => {
                           </div>
                         ))}
                       </div>
-
-                      {option.singleSupplement && (
-                        <p className="mt-4 font-display text-xs text-muted-foreground">
-                          Supplément Single : <span className="font-semibold text-foreground">+{option.singleSupplement} DT / nuitée</span>
-                        </p>
-                      )}
                     </motion.div>
                   );
                 })}
@@ -235,7 +227,7 @@ const RegistrationSection = () => {
                 <ExternalLink className="w-4 h-4" />
               </a>
               <p className="text-xs text-muted-foreground mt-4 font-display">
-                Date limite : 18 Avril 2026
+                Date limite : Mardi 21 Avril 2026
               </p>
             </motion.div>
           </div>
