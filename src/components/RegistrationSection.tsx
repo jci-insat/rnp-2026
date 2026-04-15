@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, CreditCard, Copy, CheckCircle, ExternalLink, Bed, Star } from "lucide-react";
+import { FileText, CreditCard, Copy, CheckCircle, ExternalLink, Bed, Star, House } from "lucide-react";
 import { useState } from "react";
 
 const RegistrationSection = () => {
@@ -8,13 +8,14 @@ const RegistrationSection = () => {
   const hotels = [
     {
       name: "Hôtel LAICO Blue Marine",
+      stars: 5,
       accentClass: "text-primary",
       lineClass: "via-primary/30",
       options: [
         {
           key: "VSD",
           title: "Hébergement VSD",
-          icon: Star,
+          icon: House,
           prices: [
             { label: "Double", amount: 270 },
             { label: "Triple", amount: 266 },
@@ -41,13 +42,14 @@ const RegistrationSection = () => {
     },
     {
       name: "Green Golf Hammamet",
+      stars: 3,
       accentClass: "text-emerald-600 dark:text-emerald-400",
       lineClass: "via-emerald-500/30",
       options: [
         {
           key: "GREEN_VSD",
           title: "Hébergement VSD",
-          icon: Star,
+          icon: House,
           prices: [
             { label: "Single", amount: 180 },
             { label: "Double", amount: 120 },
@@ -117,6 +119,11 @@ const RegistrationSection = () => {
                     {hotel.name}
                   </h3>
                   <span className={`hidden sm:block w-12 h-px bg-gradient-to-l from-transparent ${hotel.lineClass}`} />
+                </div>
+                <div className={`flex items-center justify-center gap-1 ${hotel.accentClass}`} aria-label={`${hotel.stars} étoiles`}>
+                  {Array.from({ length: hotel.stars }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
                 </div>
               </div>
 
