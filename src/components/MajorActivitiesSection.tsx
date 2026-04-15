@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Code2, MessagesSquare, PartyPopper } from "lucide-react";
+import { Building2, Code2, PartyPopper } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const activities = [
@@ -12,12 +12,6 @@ const activities = [
     title: "Hackathon",
     icon: Code2,
     path: "/activites/hackathon",
-  },
-  {
-    title: "Panels",
-    icon: MessagesSquare,
-    path: "/activites/panels",
-    hoverMessage: "Révélé bientôt",
   },
   {
     title: "Soirée",
@@ -42,7 +36,7 @@ const MajorActivitiesSection = () => {
           </h2>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {activities.map((activity, index) => {
             const Icon = activity.icon;
 

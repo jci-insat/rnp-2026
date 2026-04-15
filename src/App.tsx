@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ForumEntreprisesPage from "./pages/ForumEntreprisesPage";
 import HackathonPage from "./pages/HackathonPage";
-import PanelsPage from "./pages/PanelsPage";
 import SoireePage from "./pages/SoireePage";
 
 const queryClient = new QueryClient();
@@ -22,7 +21,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/activites/forum-entreprises" element={<ForumEntreprisesPage />} />
           <Route path="/activites/hackathon" element={<HackathonPage />} />
-          <Route path="/activites/panels" element={<PanelsPage />} />
           <Route path="/activites/soiree" element={<SoireePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
