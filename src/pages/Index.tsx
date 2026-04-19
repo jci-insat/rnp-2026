@@ -6,6 +6,7 @@ import MajorActivitiesSection from "@/components/MajorActivitiesSection";
 import RegistrationSection from "@/components/RegistrationSection";
 import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
+import SocialFloating from "@/components/SocialFloating";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <RegistrationSection />
       {/* <PartnersSection /> */}
       <Footer />
+      <SocialFloating />
     </div>
   );
 };

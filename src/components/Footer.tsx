@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import logoRnp from "@/assets/logo-rnp.png";
 
 const Footer = () => {
@@ -20,13 +20,33 @@ const Footer = () => {
           </div>
 
           {/* Logo */}
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-4">
             <div className="w-32 h-32 flex items-center justify-center">
-              <img 
-                src={logoRnp} 
-                alt="RNP 2026 Logo" 
+              <img
+                src={logoRnp}
+                alt="RNP 2026 Logo"
                 className="w-full h-full object-contain filter brightness-110"
               />
+            </div>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.facebook.com/1RNP2026/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-secondary-foreground/70 hover:text-primary transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/1RNP2026/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-secondary-foreground/70 hover:text-primary transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 import { CalendarDays, Code2, ExternalLink, FileText, Sparkles, Trophy, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SocialFloating from "@/components/SocialFloating";
 
 const hackathonRegistrationUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSdtQ8aS5boPyW8JhzFPj1RBZKWkqAGzqFFhw2XTZcbC4YZqgw/viewform?usp=publish-editor";
@@ -107,6 +108,7 @@ const HackathonPage = () => {
         </div>
       </main>
       <Footer />
+      <SocialFloating />
     </div>
   );
 };

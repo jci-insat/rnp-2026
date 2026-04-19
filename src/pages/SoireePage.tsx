@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SocialFloating from "@/components/SocialFloating";
 
 const SoireePage = () => {
   return (
@@ -17,6 +18,7 @@ const SoireePage = () => {
         </div>
       </main>
       <Footer />
+      <SocialFloating />
     </div>
   );
 };

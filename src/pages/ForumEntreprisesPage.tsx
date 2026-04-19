@@ -1,6 +1,7 @@
 import { BriefcaseBusiness, Lightbulb, Mail, Phone, Users, Building2, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SocialFloating from "@/components/SocialFloating";
 import smokeBg from "@/assets/smoke-bg.webp";
 import jciTunisieLogo from "@/assets/logos/JCI Tunisie.png";
 import jciInsatLogo from "@/assets/logos/JCI INSAT Tunis.png";
@@ -156,6 +157,7 @@ const ForumEntreprisesPage = () => {
         </div>
       </main>
       <Footer />
+      <SocialFloating />
     </div>
   );
 };
