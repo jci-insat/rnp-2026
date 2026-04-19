@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
-import { Building2, Code2, PartyPopper } from "lucide-react";
+import { Building2, Code2, PartyPopper, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import cyeLogo from "@/assets/CYE.png";
 
-const activities = [
+type Activity = {
+  title: string;
+  path: string;
+  icon?: LucideIcon;
+  image?: string;
+  hoverMessage?: string;
+};
+
+const activities: Activity[] = [
   {
     title: "Forum d'entreprises",
     icon: Building2,
@@ -12,6 +21,11 @@ const activities = [
     title: "Hackathon",
     icon: Code2,
     path: "/activites/hackathon",
+  },
+  {
+    title: "CYE",
+    image: cyeLogo,
+    path: "/activites/cye",
   },
   {
     title: "Soirée",
@@ -36,9 +50,25 @@ const MajorActivitiesSection = () => {
           </h2>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {activities.map((activity, index) => {
             const Icon = activity.icon;
+
+            const visual = activity.image ? (
+              <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 flex items-center justify-center">
+                <img
+                  src={activity.image}
+                  alt={activity.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ) : (
+              Icon && (
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-primary" />
+                </div>
+              )
+            );
 
             return (
               <motion.div
@@ -55,9 +85,7 @@ const MajorActivitiesSection = () => {
                     title={activity.hoverMessage}
                     aria-disabled="true"
                   >
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon className="w-7 h-7 text-primary" />
-                    </div>
+                    {visual}
                     <h3 className="font-display font-bold text-lg text-secondary uppercase tracking-wide">
                       {activity.title}
                     </h3>
@@ -71,9 +99,7 @@ const MajorActivitiesSection = () => {
                     className="block hover:opacity-90 transition-opacity"
                     title={activity.title}
                   >
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon className="w-7 h-7 text-primary" />
-                    </div>
+                    {visual}
                     <h3 className="font-display font-bold text-lg text-secondary uppercase tracking-wide">
                       {activity.title}
                     </h3>
