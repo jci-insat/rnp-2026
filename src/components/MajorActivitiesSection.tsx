@@ -28,10 +28,9 @@ const activities: Activity[] = [
     path: "/activites/cye",
   },
   {
-    title: "Soirée",
+    title: "Tunisian Village",
     icon: PartyPopper,
     path: "/activites/soiree",
-    hoverMessage: "Révélé bientôt",
   },
 ];
 
