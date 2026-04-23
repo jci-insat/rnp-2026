@@ -1,99 +1,69 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, MapPin, Clock, Plus } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 
-const days = [
+type Session = {
+  time: string;
+  title: string;
+  type: string;
+  note?: string;
+};
+
+type Day = {
+  label: string;
+  date: string;
+  sessions: Session[];
+};
+
+const days: Day[] = [
   {
     label: "Vendredi",
     date: "24 Avril",
     sessions: [
+      { time: "10:00", title: "Accueil & inscription", type: "Logistique" },
+      { time: "14:00", title: "Forum d'entreprises", type: "Programme" },
+      { time: "14:30", title: "Ouverture", type: "Plénière" },
+      { time: "15:00", title: "Lancement du Hackathon", type: "Programme" },
       {
-        time: "14:00 - 15:30",
-        title: "Accueil & Enregistrement",
-        type: "Logistique",
-        desc: "Installation des délégations et distribution des kits participants",
+        time: "15:00 - 17:00",
+        title: "Formation : “The Art Of Influence & The Power Of The Pitch”",
+        type: "Programme",
       },
-      {
-        time: "16:00 - 17:30",
-        title: "Cérémonie d'Ouverture",
-        type: "Plénière",
-        desc: "Discours d'ouverture du Président National et des invités d'honneur",
-      },
-      {
-        time: "18:00 - 19:30",
-        title: "Ice Breaking & Networking",
-        type: "Social",
-        desc: "Activités de cohésion et de réseautage entre présidents locaux",
-      },
-      {
-        time: "20:00",
-        title: "Dîner Officiel",
-        type: "Social",
-        desc: "Dîner de gala avec les partenaires et sponsors",
-      },
+      { time: "17:00 - 19:30", title: "Programme CYE", type: "Programme" },
+      { time: "20:00", title: "Réunion BNE", type: "Plénière" },
+      { time: "20:00", title: "Réunion des structures", type: "Plénière" },
+      { time: "22:00", title: "Soirée", type: "Programme" },
     ],
   },
   {
     label: "Samedi",
     date: "25 Avril",
     sessions: [
-      {
-        time: "09:00 - 10:30",
-        title: "Assemblée Générale - Partie 1",
-        type: "Plénière",
-        desc: "Rapport moral et financier du mandat précédent",
-      },
-      {
-        time: "11:00 - 12:30",
-        title: "Ateliers Stratégiques",
-        type: "Formation",
-        desc: "Sessions parallèles sur la transformation digitale des OLM",
-      },
-      {
-        time: "14:00 - 15:30",
-        title: "Plan d'Action National 2026",
-        type: "Plénière",
-        desc: "Présentation et adoption du plan stratégique annuel",
-      },
-      {
-        time: "16:00 - 17:30",
-        title: "Formation Leadership",
-        type: "Formation",
-        desc: "Workshop sur le leadership innovant post-Congrès Mondial",
-      },
+      { time: "08:00", title: "Suite des inscriptions", type: "Logistique" },
+      { time: "08:00", title: "Forum d'entreprises", type: "Programme" },
+      { time: "10:00 - 14:00", title: "CYE", type: "Programme" },
+      { time: "12:00", title: "Pitchs du Hackathon", type: "Programme" },
+      { time: "14:00", title: "Intronisation des présidents", type: "Plénière" },
+      { time: "15:00", title: "Panel Thème National", type: "Programme" },
+      { time: "17:00 - 20:00", title: "1re partie — Assemblée Générale", type: "Plénière" },
+      { time: "21:00", title: "Tunisian Village", type: "Programme" },
     ],
   },
   {
     label: "Dimanche",
     date: "26 Avril",
     sessions: [
-      {
-        time: "09:00 - 10:30",
-        title: "Assemblée Générale - Partie 2",
-        type: "Plénière",
-        desc: "Votes et résolutions statutaires",
-      },
-      {
-        time: "11:00 - 12:00",
-        title: "Cérémonie de Clôture",
-        type: "Plénière",
-        desc: "Synthèse des travaux et engagements collectifs",
-      },
-      {
-        time: "12:30",
-        title: "Déjeuner de Clôture",
-        type: "Social",
-        desc: "Repas de clôture et départ des délégations",
-      },
+      { time: "09:00 - 11:30", title: "2ème partie — Assemblée Générale", type: "Plénière" },
+      { time: "11:30", title: "Annonce — Résultat des programmes", type: "Plénière" },
+      { time: "13:00", title: "Check-out", type: "Logistique" },
     ],
   },
 ];
 
 const typeColors: Record<string, string> = {
   Plénière: "bg-primary/10 text-primary",
-  Formation: "bg-secondary/10 text-secondary",
-  Social: "bg-muted text-muted-foreground",
-  Logistique: "bg-muted text-muted-foreground",
+  Programme: "bg-red-500/10 text-red-600 dark:text-red-400",
+  Logistique: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
 };
 
 const ProgramSection = () => {
@@ -102,7 +72,6 @@ const ProgramSection = () => {
   return (
     <section id="programme" className="py-5 md:py-8 bg-background relative">
       <div className="container px-4">
-        {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +87,6 @@ const ProgramSection = () => {
           </div>
         </motion.div>
 
-        {/* Day tabs */}
         <div className="flex justify-center gap-2 md:gap-4 mb-12">
           {days.map((day, i) => (
             <button
@@ -136,19 +104,7 @@ const ProgramSection = () => {
           ))}
         </div>
 
-          {/* This will be removed  */}
-        <div className="text-center">
-          <p className="font-script text-xl md:text-2xl text-secondary mb-3">Bientôt Révélé</p>
-          <p className="text-muted-foreground font-display text-sm md:text-base leading-relaxed">
-            Le programme complet des trois jours sera dévoilé très prochainement.
-            <br />
-            Restez connectés pour découvrir les sessions, ateliers et moments forts qui vous attendent.
-          </p>
-        </div>
-        
-
-        {/* Sessions */}
-        {/* <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           <motion.div
             key={activeDay}
             initial={{ opacity: 0, y: 10 }}
@@ -162,39 +118,32 @@ const ProgramSection = () => {
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.05 }}
                 className="bg-card border border-secondary/10 rounded-sm p-5 md:p-6 hover:border-primary/30 transition-colors group"
               >
-                <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-6">
-                  <div className="flex items-center gap-2 text-muted-foreground shrink-0">
+                <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+                  <div className="flex items-center gap-2 text-muted-foreground shrink-0 md:w-40">
                     <Clock className="w-4 h-4" />
                     <span className="font-display text-sm font-medium">{session.time}</span>
                   </div>
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-display font-bold text-foreground group-hover:text-primary transition-colors">
-                          {session.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm mt-1 font-display font-light">{session.desc}</p>
-                      </div>
+                      <h3 className="font-display font-bold text-foreground group-hover:text-primary transition-colors">
+                        {session.title}
+                      </h3>
                       <span className={`text-[10px] uppercase font-display font-semibold tracking-wider px-3 py-1 rounded-sm shrink-0 ${typeColors[session.type]}`}>
                         {session.type}
                       </span>
                     </div>
+                    {session.note && (
+                      <p className="text-muted-foreground text-sm mt-1 font-display font-light">{session.note}</p>
+                    )}
                   </div>
-                  <button
-                    className="hidden md:flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
-                    title="Ajouter à l'agenda"
-                  >
-                    <Plus className="w-3 h-3" />
-                    <Calendar className="w-3 h-3" />
-                  </button>
                 </div>
               </motion.div>
             ))}
           </motion.div>
-        </AnimatePresence> */}
+        </AnimatePresence>
       </div>
     </section>
   );

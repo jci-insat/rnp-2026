@@ -11,6 +11,7 @@ const RegistrationSection = () => {
       stars: 5,
       accentClass: "text-primary",
       lineClass: "via-primary/30",
+      mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2775.651402528351!2d10.540676804923462!3d36.37319725261593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd64810c3eafbd%3A0xed1c652abc26e90c!2sBlue%20Marine%20Hotel%20Hammamet!5e1!3m2!1sen!2sat!4v1776957188888!5m2!1sen!2sat",
       options: [
         {
           key: "VSD",
@@ -45,6 +46,7 @@ const RegistrationSection = () => {
       stars: 3,
       accentClass: "text-emerald-600 dark:text-emerald-400",
       lineClass: "via-emerald-500/30",
+      mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2770.50535578115!2d10.538697136921371!3d36.37335946760801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd638159864491%3A0x8dec4de484f8fc71!2sGreen%20Golf!5e1!3m2!1sen!2sat!4v1776957220486!5m2!1sen!2sat",
       options: [
         {
           key: "GREEN_VSD",
@@ -166,6 +168,21 @@ const RegistrationSection = () => {
                     </motion.div>
                   );
                 })}
+              </div>
+
+              {/* Map */}
+              <div className="max-w-4xl mx-auto mt-8">
+                <div className="relative overflow-hidden rounded-sm border border-secondary/20 aspect-[16/9]">
+                  <iframe
+                    src={hotel.mapSrc}
+                    title={`Carte - ${hotel.name}`}
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </motion.div>
           ))}
